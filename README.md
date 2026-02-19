@@ -1,197 +1,108 @@
-🚀 Node-Based Pipeline Builder (React + FastAPI)
+# 🚀 Node-Based Pipeline Builder (React + FastAPI)
 
+<br/>
 
+An extensible, architecture-driven pipeline editor designed for scalability. This project implements a modular node system with dynamic UI updates and a robust FastAPI backend for structural validation.
 
+---
 
+## 📌 Overview
 
+This repository focuses on building a **scalable node-based pipeline editor**. Unlike traditional implementations that rely on isolated, hard-coded components, this solution utilizes a reusable abstraction layer inspired by industry-standard workflow systems like **LangFlow** and **AI automation builders**.
 
+### 🛠️ Core Objectives
+* **Scalability:** Logic that handles increasing graph complexity.
+* **Maintainability:** Clean separation of concerns between UI and state.
+* **Abstraction:** Drastically reduced boilerplate for new node types.
+* **Real-world Patterns:** Industry-standard DAG (Directed Acyclic Graph) validation.
 
+---
 
-📌 Overview
+## ⭐ Key Features
 
-This repository contains my implementation of building a scalable node-based pipeline editor using React (frontend) and FastAPI (backend).
+* 🧩 **Scalable Node Abstraction:** Unified architecture for all node types.
+* ⚡ **Dynamic Handle Generation:** Automatic creation of ports from `{{ variable }}` syntax.
+* ↔️ **Auto-Resizing UI:** Nodes that adapt dimensions based on content.
+* ✅ **DAG Validation:** Integrated backend checks to prevent infinite loops.
+* 📦 **Modular Design:** Rapid creation of new nodes through simple configuration.
 
-The main objective was to design an extensible architecture that supports reusable node abstractions, dynamic UI behavior, and frontend-backend pipeline validation.
+---
 
-Rather than implementing isolated components, the focus of this solution was on:
+## 🧠 Architecture Highlights
 
-scalability
 
-maintainability
 
-component abstraction
+### ✅ Node Abstraction System
+I replaced redundant component duplication with a **Configurable Base Node** layer. This standardizes:
+* **Layout & Styling:** Consistent visual language across the board.
+* **Handles:** Centralized management of input/output connections.
+* **Shared Logic:** Common behaviors (drag, click, edit) are inherited.
 
-real-world workflow editor patterns
+> **Result:** New node types can now be added via configuration instead of rewriting foundational logic.
 
-Inspired by node-based workflow systems similar to visual AI pipelines, LangFlow, and automation builders.
+<br/>
 
+### ✏️ Dynamic Text Node Logic
+Implements advanced interactive behavior mimicking real-world logic editors:
+* **Variable Detection:** Real-time parsing of `{{ variableName }}`.
+* **Dynamic Ports:** Input handles are generated on-the-fly as variables are typed.
+* **Fluid UI:** The node container auto-adjusts to fit user-provided content.
 
+<br/>
 
-⭐ Key Features
+### 🔗 Frontend ↔ Backend Integration
+* **Frontend:** Captures and serializes the graph structure (Nodes + Edges).
+* **Backend (FastAPI):** Validates the graph integrity, providing counts and verifying the **DAG structure** to ensure the pipeline is executable.
 
-Scalable node abstraction architecture
+---
 
-Dynamic handle generation from template variables
+## ⚙️ Tech Stack
 
-Auto-resizing node UI
+| Layer | Technology |
+| :--- | :--- |
+| **Frontend** | React, JavaScript, Node-based UI architecture |
+| **Backend** | Python, FastAPI, Graph validation logic |
+| **Styling** | Scalable Design System principles |
 
-DAG validation via backend integration
+---
+## 📂 Project Structure
 
-Modular design for rapid node creation
+* bash
+* ├── /frontend
+* │   └── /src
+* │       └── /nodes    # Abstraction layer & node components
+* └── /backend          # FastAPI logic & DAG validation
+----
 
+## ▶️ Running Locally
 
+### 💻 Frontend
+* **Navigate to the frontend directory:**
+  ```bash
+  cd frontend
+  npm install
+  npm start
 
-🧠 Architecture Highlights
 
-✅ Node Abstraction System
+  🐍 Backend
+  Bash
+  cd backend
+  uvicorn main:app --reload
 
-Original implementation required duplicating node components for each new type.
 
-I introduced a reusable abstraction layer:
+## 🎯 Engineering Focus
 
-Created a configurable base node component.
+* **🏗️ Abstraction-Driven Design:** Focusing on "DRY" (Don't Repeat Yourself) principles to minimize boilerplate and improve scalability.
+* **📈 UI Scalability:** Ensuring the architecture and rendering logic handle complex, large-scale workflows efficiently.
+* **🛡️ Separation of Concerns:** Maintaining clearly defined boundaries between the UI components and the backend processing logic.
 
-Standardized structure for:
+---
 
-Layout
+## 🧪 Future Improvements
 
-Handles (input/output connections)
+* **🚀 Node Configuration Schema:** Implementation of a JSON-based schema for fully dynamic node generation.
+* **🧠 State Management:** Abstracting workflows for complex data handling using specialized state libraries like Zustand or Redux.
+* **⚡ Performance:** Advanced drag-and-drop optimizations and canvas virtualization for 100+ node graphs.
+* **📊 Visualization:** Adding auto-layout algorithms (such as Dagre or ElkJS) to help organize messy pipelines automatically.
 
-Styling
-
-Shared logic
-
-Enables rapid creation of new node types with minimal boilerplate.
-
-Result:
-
-👉 New nodes can be added through configuration instead of rewriting logic.
-
-To demonstrate flexibility, multiple additional nodes were implemented using this abstraction.
-
-
-
-🎨 Unified UI Styling
-
-Designed consistent visual styling across all nodes.
-
-Implemented scalable design system principles.
-
-Focused on clarity, readability, and interaction usability.
-
-Structured styling to support future expansion.
-
-✏️ Dynamic Text Node Logic
-
-Enhanced text node functionality with advanced interactive behavior:
-
-Auto-resizing node dimensions based on user input.
-
-Variable detection using template syntax:
-
-{{ variableName }}
-
-
-Automatic generation of dynamic input handles based on detected variables.
-
-This mimics real-world workflow editors where text inputs dynamically influence pipeline structure.
-
-
-
-
-🔗 Frontend ↔ Backend Pipeline Integration
-
-Implemented full-stack integration.
-
-Frontend
-
-Sends graph structure (nodes + edges) to backend API.
-
-Displays structured feedback through user alerts.
-
-Backend (FastAPI)
-
-Calculates:
-
-Number of nodes
-
-Number of edges
-
-DAG (Directed Acyclic Graph) validation
-
-Ensures pipeline structural correctness.
-
-
-
-
-⚙️ Tech Stack
-
-Frontend
-
-React
-
-JavaScript
-
-Component abstraction patterns
-
-Node-based UI architecture
-
-
-
-Backend
-
-Python
-
-FastAPI
-
-Graph validation logic (DAG detection)
-
-
-
-📂 Project Structure
-/frontend
-  /src
-    /nodes
-/backend
-
-
-
-▶️ Running Locally
-
-Frontend
-
-cd frontend
-npm install
-npm start
-
-
-Backend
-cd backend
-uvicorn main:app --reload
-
-
-
-🎯 Engineering Focus
-
-
-This project emphasizes:
-
-abstraction-driven design
-
-reusable component architecture
-
-scalable UI systems
-
-separation of concerns between UI and processing logic
-
-
-
-🧪 Future Improvements
-
-Node configuration schema for dynamic generation
-
-State management abstraction for complex workflows
-
-Drag-and-drop performance optimizations
-
-Graph visualization enhancements
+---
